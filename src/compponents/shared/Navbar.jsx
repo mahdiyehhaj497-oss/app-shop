@@ -10,7 +10,10 @@ export default function Navbar() {
             </Link>
 
             <span className="mx-4">Singin</span>
-            <span className="mx-4">About Us</span>
+
+            <Link to="/aboutus">
+              <span className="mx-4">About Us</span>
+            </Link>
             <span className="mx-4">Contact Us</span>
           </div>
         </div>
