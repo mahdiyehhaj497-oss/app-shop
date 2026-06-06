@@ -4,7 +4,7 @@ export default function ProductPage() {
     return (
       <>
         <div className="bg-[url('public/engin-akyurt-Hlkuojv_P6I-unsplash.jpg')] bg-no-repeat bg-cover bg-center h-screen">
-          <Product />
+          <Product/>
         </div>
       </>
     );
