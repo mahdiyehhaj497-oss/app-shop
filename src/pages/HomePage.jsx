@@ -4,7 +4,7 @@ import Navbar from "../compponents/shared/Navbar";
 export default function HomePage() {
     return (
       <>
-        <div className="bg-[url('public/engin-akyurt-Hlkuojv_P6I-unsplash.jpg')] bg-no-repeat bg-cover bg-center h-screen">
+        <div className="bg-[url('engin-akyurt-Hlkuojv_P6I-unsplash.jpg')] bg-no-repeat bg-cover bg-center h-screen">
           <Navbar />
 
           <div className="flex justify-center items-center ">

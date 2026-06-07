@@ -4,6 +4,7 @@ import HomePage from "./src/pages/HomePage";
 import react from "react"
 import ProductPage from "./src/pages/ProductPage";
 import AboutPage from "./src/pages/AboutPage";
+import SinginPage from "./src/pages/SinginPage";
 const routes =createBrowserRouter([{
     
     path: "/",
@@ -14,7 +15,11 @@ const routes =createBrowserRouter([{
     }, {
     path: "/aboutus",
         element:<AboutPage/>
-}
+    },
+    {
+        path: "/singin",
+        element:<SinginPage/>
+    }
 ])
 
 

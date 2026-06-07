@@ -3,7 +3,7 @@ export default function CardProduct({title,image }) {
         <>
             <div className="flex items-center justify-center">
                 <img src={image} />
-                <h1>{title }</h1>
+                <h1>{title}</h1>
         </div>
         </>
     )
