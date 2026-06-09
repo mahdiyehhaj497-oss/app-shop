@@ -8,8 +8,10 @@ export default function Navbar() {
             <Link to="/">
               <span className="mx-4">Home</span>
             </Link>
-
-            <span className="mx-4">Singin</span>
+            <Link to="/singin">
+              
+              <span className="mx-4">Singin</span>
+            </Link>
 
             <Link to="/aboutus">
               <span className="mx-4">About Us</span>
