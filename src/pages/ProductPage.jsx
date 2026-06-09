@@ -9,6 +9,12 @@ export default function ProductPage() {
   const[searchVal,setSearchVal]=useState("")
   const { isLoading, isError, data } = useGetProduct()
   
+useEffect(() => { 
+    if (data?.data) {
+      setFilterPost(data.data)
+    }
+  }, [data])
+
   useEffect(() => {
     if (tmo) {
       clearTimeout(tmo)
@@ -17,29 +23,35 @@ export default function ProductPage() {
       setFilterPost((data?.data || []).filter((item) => item.title.includes(searchVal)))
     },1000);
 
-  },[])
+  },[data , searchVal])
 
     return (
       <>
-        <div className="bg-[url('engin-akyurt-Hlkuojv_P6I-unsplash.jpg')] bg-no-repeat bg-cover bg-center h-screen">
-          <div><Navbar/></div>
+        <div className="bg-slate-700">
           <div>
-
-            <input type="text"
+            <Navbar />
+          </div>
+          <div className="flex justify-center items-center mt-10  ">
+            <input
+              className="bg-gray-500 w-3/5 h-8 rounded-2xl p-4 text-gray-100"
+              type="text"
               onChange={(e) => setSearchVal(e.target.value)}
               value={searchVal}
+              placeholder="Please Enter as you want"
             />
-            <div>
-              {filterPost.map((item) => (
-                <CartProduct
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  image={item.image}
-                  
-                />
-))}
-            </div>
+          </div>
+          <div className="flex flex-wrap  items-center justify-center ">
+            {filterPost.map((item) => (
+              <CartProduct
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                description={item.description}
+                category={item.category}
+              />
+            ))}
           </div>
         </div>
       </>
