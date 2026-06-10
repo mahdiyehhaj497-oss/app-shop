@@ -20,14 +20,13 @@ export default function Form() {
     mode:"onBlur"
   })
 
-const{data,isPending,mutate}=usePostLogIn()
-
-    function submitHandler(formData) {
-        console.log(formData)
-        mutate({
-            username: formData.username, password:formData.password}) 
-    }
-const queryClient=useQueryClient()
+  const { data, isPending, mutate } = usePostLogIn()
+  
+  function submitHandler(formData) {
+    mutate({username:formData.username , password:formData.password})
+  }
+   
+  const queryClient=useQueryClient()
 
     return (
       <>
