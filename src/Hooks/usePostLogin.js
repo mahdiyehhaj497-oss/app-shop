@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-
-export default function usePostLogIn() {
+import Cookies from "js-cookie";
+export default function usePostLogin() {
     const navigate = useNavigate()
     const mutationFn = async ({ username, password }) => {
         const { data } = await api.post("/auth/login", {
@@ -17,7 +17,8 @@ export default function usePostLogIn() {
     return useMutation({
         mutationFn,
         onSuccess: (respons) => {
-            Cookies.set("token", respons.token, { expires: 1 })
+            console.log(respons)
+            Cookies.set("token", respons.data.token, { expires: 1 })
             navigate("/admin-panel")
         },
         onError:()=>{}

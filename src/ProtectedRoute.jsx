@@ -5,7 +5,7 @@ export default function ProtectedRoute() {
 
     const token = useMemo(() => {
     return Cookies.get("token")
-    }, [])
+    })
     
     const navigate = useNavigate()
     
@@ -13,7 +13,7 @@ export default function ProtectedRoute() {
         if (!token) {
             navigate("/singin")
         }
-    }, [])
+    }, [token])
     
     return <Outlet/>
 

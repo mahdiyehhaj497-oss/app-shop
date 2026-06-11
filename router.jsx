@@ -34,5 +34,4 @@ const routes =createBrowserRouter([{
     }
 ])
 
-
 export default routes
