@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import api from "../api";
+
 export default function usePostLogin() {
     const navigate = useNavigate()
     const mutationFn = async ({ username, password }) => {
@@ -12,14 +13,15 @@ export default function usePostLogin() {
                 "Content-Type" :"multipart/form-data"
             }
         })
-    } 
+        return data
+}
 
+    
     return useMutation({
         mutationFn,
         onSuccess: (respons) => {
-            console.log(respons)
-            Cookies.set("token", respons.data.token, { expires: 1 })
-            navigate("/admin-panel")
+            Cookies.set("token", respons.token, { expires: 1 })
+            navigate("/admin-panel");
         },
         onError:()=>{}
     })

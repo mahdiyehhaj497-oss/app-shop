@@ -1,15 +1,16 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = 'https://fakestoreapi.com/'
+const baseURL = 'https://fakestoreapi.com';
 const token=Cookies.get("token")
 const api = axios.create({
-    baseURL: baseURL,
-    headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-    }
+  baseURL: baseURL,
+  headers: {
+    "Content-Type": "application/json",
+    authorization: `Bearer ${token}`,
+  },
 });
+
 api.interceptors.response.use(
     (res) => {
         

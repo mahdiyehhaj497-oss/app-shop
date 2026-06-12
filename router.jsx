@@ -8,30 +8,33 @@ import SinginPage from "./src/pages/SinginPage";
 import ProtectedRoute from "./src/ProtectedRoute";
 import AdminPanel from "./src/compponents/AdminPanel"
 
-const routes =createBrowserRouter([{
-    
+const routes = createBrowserRouter([
+  {
     path: "/",
-    element: <HomePage/>
-}, {
+    element: <HomePage />,
+  },
+  {
     path: "/product",
-    element:<ProductPage/>
-    }, {
+    element: <ProductPage />,
+  },
+  {
     path: "/aboutus",
-        element:<AboutPage/>
-    },
-    {
-        path: "/singin",
-        element:<SinginPage/>
-    }, {
-        path:"/admin-panel",
-        element: <ProtectedRoute/>,
-        children: [
-            {
-                index: true,
-                element:<AdminPanel/>
-            }
-        ]
-    }
-])
+    element: <AboutPage />,
+  },
+  {
+    path: "/singin",
+    element: <SinginPage />,
+  },
+  {
+    path: "/admin-panel",
+    element: <ProtectedRoute />,
+    children: [
+      {
+        index: true,
+        element: <AdminPanel />,
+      },
+    ],
+  },
+]);
 
 export default routes
