@@ -10,7 +10,7 @@ export default function usePostLogin() {
             password
         }, {
             headers: {
-                "Content-Type" :"multipart/form-data"
+                "Content-Type" :"application/json"
             }
         })
         return data
@@ -20,8 +20,9 @@ export default function usePostLogin() {
     return useMutation({
         mutationFn,
         onSuccess: (respons) => {
-            Cookies.set("token", respons.token, { expires: 1 })
-            navigate("/admin-panel");
+           localStorage.setItem("token", respons.token)
+          // Cookies.set("token", respons.token, { expires: 1 })
+          navigate("/admin");
         },
         onError:()=>{}
     })

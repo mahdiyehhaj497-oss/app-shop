@@ -1,4 +1,4 @@
-import { BrowserRouter, createBrowserRouter } from "react-router-dom";
+import { BrowserRouter, createBrowserRouter, Route } from "react-router-dom";
 import HomePage from "./src/pages/HomePage";
 
 import react from "react"
@@ -25,16 +25,18 @@ const routes = createBrowserRouter([
     path: "/singin",
     element: <SinginPage />,
   },
-  {
-    path: "/admin-panel",
-    element: <ProtectedRoute />,
-    children: [
-      {
-        index: true,
-        element: <AdminPanel />,
-      },
-    ],
-  },
+  // {
+  //   path: "/admin",
+  //   element: <ProtectedRoute />,
+  //   children: [{
+  //     index: true,
+  //     element:<AdminPanel/>,
+  //   }]
+  // },
 ]);
+
+<Route element={<ProtectedRoute />}>
+  <Route path="/admin" element={<AdminPanel/>} />
+</Route>;
 
 export default routes
