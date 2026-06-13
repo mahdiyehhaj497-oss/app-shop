@@ -22,7 +22,7 @@ export default function usePostLogin() {
         onSuccess: (respons) => {
            localStorage.setItem("token", respons.token)
           // Cookies.set("token", respons.token, { expires: 1 })
-          navigate("/admin");
+          navigate("/admin-panel");
         },
         onError:()=>{}
     })

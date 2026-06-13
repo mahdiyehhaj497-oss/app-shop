@@ -25,18 +25,15 @@ const routes = createBrowserRouter([
     path: "/singin",
     element: <SinginPage />,
   },
-  // {
-  //   path: "/admin",
-  //   element: <ProtectedRoute />,
-  //   children: [{
-  //     index: true,
-  //     element:<AdminPanel/>,
-  //   }]
-  // },
+  {
+    path: "/admin-panel",
+    element: <ProtectedRoute />,
+    children: [{
+      index: true,
+      element:<AdminPanel/>,
+    }]
+  },
 ]);
 
-<Route element={<ProtectedRoute />}>
-  <Route path="/admin" element={<AdminPanel/>} />
-</Route>;
 
 export default routes

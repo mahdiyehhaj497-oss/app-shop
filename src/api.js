@@ -2,7 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const baseURL = 'https://fakestoreapi.com';
-const token=Cookies.get("token")
+// const token=Cookies.get("token")
+const token=localStorage.getItem("token")
 const api = axios.create({
   baseURL: baseURL,
   headers: {

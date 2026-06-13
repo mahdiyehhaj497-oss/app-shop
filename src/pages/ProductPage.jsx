@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../compponents/shared/Navbar";
 import useGetProduct from "../Hooks/useGetProduct";
 import CartProduct from "../compponents/CartProduct"
+import Loading from "../compponents/shared/Loading";
+import Footer from "../compponents/shared/Footer";
 
 let tmo
 export default function ProductPage() {
@@ -27,7 +29,7 @@ useEffect(() => {
 
     return (
       <>
-        <div className="bg-slate-700">
+        <div className="bg-slate-800">
           <div>
             <Navbar />
           </div>
@@ -40,6 +42,7 @@ useEffect(() => {
               placeholder="Please Enter as you want"
             />
           </div>
+          {isLoading && <Loading />}
           <div className="flex flex-wrap  items-center justify-center ">
             {filterPost.map((item) => (
               <CartProduct
@@ -54,6 +57,7 @@ useEffect(() => {
             ))}
           </div>
         </div>
+        <Footer/>
       </>
     );
 }
