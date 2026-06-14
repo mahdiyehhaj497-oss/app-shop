@@ -1,7 +1,17 @@
+import Footer from "./shared/Footer";
+import Navbar from "./shared/Navbar";
+
 export default function AdminPanel() {
     return (
-        <>
-        <h1>hi</h1>
-        </>
-    )
+      <>
+        <div className="bg-slate-800">
+          
+                <Navbar />
+                
+                
+        </div>
+
+        <Footer />
+      </>
+    );
 }
