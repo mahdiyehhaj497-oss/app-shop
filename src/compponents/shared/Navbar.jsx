@@ -9,14 +9,15 @@ export default function Navbar() {
               <span className="mx-4">Home</span>
             </Link>
             <Link to="/singin">
-              
               <span className="mx-4">Singin</span>
             </Link>
 
             <Link to="/aboutus">
               <span className="mx-4">About Us</span>
             </Link>
-            <span className="mx-4">Contact Us</span>
+            <Link to="/contactus">
+              <span className="mx-4">Contact Us</span>
+            </Link>
           </div>
         </div>
       </>

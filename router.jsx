@@ -7,6 +7,7 @@ import AboutPage from "./src/pages/AboutPage";
 import SinginPage from "./src/pages/SinginPage";
 import ProtectedRoute from "./src/ProtectedRoute";
 import AdminPanel from "./src/compponents/AdminPanel"
+import ContactUsPage from "./src/pages/ContactUsPage";
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const routes = createBrowserRouter([
       element:<AdminPanel/>,
     }]
   },
+  {
+    path: "/contactus",
+    element:<ContactUsPage/>
+  }
 ]);
 
 
