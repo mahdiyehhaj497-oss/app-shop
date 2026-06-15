@@ -1,40 +1,33 @@
 import { Mail, MapPin, Phone } from "lucide-react";
-import Navbar from "../compponents/shared/Navbar"
 
 export default function ContactUsPage() {
     return (
       <>
-        <div>
+        <div className="bg-[url('public/quino-al-4SNUcHPiC8c-unsplash.jpg')] bg-center bg-cover h-screen flex items-center justify-center">
           <div>
-            <Navbar />
-          </div>
-          <div className="flex justify-center items-center">
-            <div className="ml-64 flex flex-col  ">
-              <div className="flex flex-row mb-8">
-                <div className="px-4"><Phone color="blue" /></div>
-                  
-                <span>+98 912 123 4567</span>
+            <div className="flex flex-row my-8">
+              <div className="mx-4 text-gray-600  ">
+                <Phone size={48} />
               </div>
-              {/* space */}
-              <div className="flex justify-center items-center">
-                <span>
-                  <Mail />
-                </span>
-                <span>Info@example.com</span>
-              </div>
-              {/* space */}
-              <div className="flex justify-center items-center">
-                <span>
-                  <MapPin />
-                </span>
-                <span>123 Street ,Tehran,Iran</span>
+              <div className="text-2xl font-semibold text-gray-500">
+                +98 912 234 5678
               </div>
             </div>
-            <div className="flex  items-center justify-center">
-              <img
-                src="public/vecteezy_contact-icon-illustration-stock-vector_32184284.svg"
-                className="w-1/2 h-1/2 bg-transparent"
-              />
+            <div className="flex flex-row my-8">
+              <div className="mx-4 text-gray-600 ">
+                <Mail size={48}/>
+              </div>
+              <div className="text-2xl font-semibold text-gray-500">
+                fake@example.com
+              </div>
+            </div>
+            <div className="flex flex-row my-8">
+              <div className="mx-4 text-gray-600 ">
+                <MapPin size={48}/>
+              </div>
+              <div className="text-2xl font-semibold text-gray-500">
+                123 Street, Tehran,Iran
+              </div>
             </div>
           </div>
         </div>
