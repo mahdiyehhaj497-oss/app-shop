@@ -5,17 +5,40 @@ import useDeleteProduct from "../Hooks/useDeleteProduct"
 import { useState } from "react";
 import usePostProduct from "../Hooks/usePostProduct";
 import { useForm } from "react-hook-form";
+import usePutProduct from "../Hooks/usePutProduct";
+import Loading from "../compponents/shared/Loading"
+
 export default function AdminPanel() {
 
   const { data, isLoading } = useGetProduct()
-  const{mutateAsync:createMutation}=usePostProduct()
+  const { mutateAsync:createMutation } = usePostProduct()
+  const{mutateAsync:updateMutation}=usePutProduct()
 const{mutate}=useDeleteProduct()
   const [editing, setEditing] = useState(null)
-  const{register,reset, handleSubmit}=useForm()
+  const { register, reset, handleSubmit } = useForm()
+  
 
   function deleteFn(productId) {
   mutate(productId)
-}
+  }
+  
+  function updateProductSubmitHandler(formData) {
+    if (editing == true) {
+      createMutation(formData).then(() => {
+        setEditing(null)
+        reset()
+      })
+    } else {
+      updateMutation({ ...formData, id: editing.id }).then(() => {
+        setEditing(null)
+        reset()
+    })}
+    
+  }
+
+  if (isLoading) {
+    return <Loading/>
+  }
 
     return (
       <>
@@ -64,6 +87,56 @@ const{mutate}=useDeleteProduct()
                 </div>
               </div>
             ))}
+
+            {editing && (
+              <div
+                onClick={() => setEditing(null)}
+                className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black/50"
+              >
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="flex flex-wrap justify-center items-center bg-white p-4 rounded-2xl  "
+                >
+                  <form onSubmit={handleSubmit(updateProductSubmitHandler)}>
+                    <div className="my-4">
+                      <label htmlFor="title" className="font-semibold">
+                        Products title:
+                      </label>
+                      <input
+                        className="w-full px-2 border-2 border-blue-950 rounded-2xl"
+                        type="text"
+                        id="title"
+                        {...register("title")}
+                      />
+                    </div>
+                    <div className="my-4">
+                      <label htmlFor="description" className="font-semibold">
+                        Products Description:
+                      </label>
+                      <input
+                        className="w-full px-2 border-2 border-blue-950 rounded-2xl"
+                        type="text"
+                        id="description"
+                        {...register("discription")}
+                      />
+                      <div className="my-4">
+                        <label htmlFor="price" className="font-semibold">
+                          Products price:
+                        </label>
+                        <input
+                          className="w-full px-2 border-2 border-blue-950 rounded-2xl"
+                          type="text"
+                          id="price"
+                          {...register("price")}
+                        />
+                      </div>
+
+                      <Button type="submit">submit</Button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
           </div>
           <div className="flex items-center justify-center pb-8">
             <button
