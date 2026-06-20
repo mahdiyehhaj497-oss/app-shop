@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { ShoppingBag } from "lucide-react";
 export default function Navbar() {
     return (
       <>
@@ -17,9 +17,7 @@ export default function Navbar() {
             <Link to="/contactus">
               <span className="mx-4">Contact Us</span>
             </Link>
-            <Link to="/cart">
-              <span className="mx-4">Cart</span>
-            </Link>
+            
           </div>
         </div>
       </>

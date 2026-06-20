@@ -4,6 +4,8 @@ import useGetProduct from "../Hooks/useGetProduct";
 import CartProduct from "../compponents/CartProduct"
 import Loading from "../compponents/shared/Loading";
 import Footer from "../compponents/shared/Footer";
+import { ShoppingBag } from "lucide-react";
+import { Link } from "react-router-dom";
 
 let tmo
 export default function ProductPage() {
@@ -29,7 +31,7 @@ useEffect(() => {
 
     return (
       <>
-        <div className="bg-slate-800">
+        <div className="bg-slate-800 relative">
           <div>
             <Navbar />
           </div>
@@ -57,7 +59,12 @@ useEffect(() => {
             ))}
           </div>
         </div>
-        <Footer/>
+        <div className="absolute top-1/15 right-1/12">
+          <Link to="/cart">
+            <ShoppingBag size={40} color="#8d8b8b" />
+          </Link>
+        </div>
+        <Footer />
       </>
     );
 }
