@@ -131,7 +131,7 @@ const{mutate}=useDeleteProduct()
                         />
                       </div>
 
-                      <Button type="submit">submit</Button>
+                      <button type="submit">submit</button>
                     </div>
                   </form>
                 </div>

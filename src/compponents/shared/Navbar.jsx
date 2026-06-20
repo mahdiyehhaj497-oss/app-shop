@@ -11,12 +11,14 @@ export default function Navbar() {
             <Link to="/singin">
               <span className="mx-4">Singin</span>
             </Link>
-
             <Link to="/aboutus">
               <span className="mx-4">About Us</span>
             </Link>
             <Link to="/contactus">
               <span className="mx-4">Contact Us</span>
+            </Link>
+            <Link to="/cart">
+              <span className="mx-4">Cart</span>
             </Link>
           </div>
         </div>

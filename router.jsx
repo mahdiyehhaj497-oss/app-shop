@@ -8,6 +8,7 @@ import SinginPage from "./src/pages/SinginPage";
 import ProtectedRoute from "./src/ProtectedRoute";
 import AdminPanel from "./src/compponents/AdminPanel"
 import ContactUsPage from "./src/pages/ContactUsPage";
+import CartPage from "./src/pages/CartPage";
 
 const routes = createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const routes = createBrowserRouter([
   {
     path: "/contactus",
     element:<ContactUsPage/>
+  }, {
+    path: "/cart",
+    element:<CartPage/>
   }
 ]);
 
